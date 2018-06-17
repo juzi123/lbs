@@ -29,8 +29,10 @@
     for (var i = 0; i < positions.length; i++) {
         var marker = new AMap.Marker({
             map: map,
+            icon: './image/marker_green.png',
             //icon: 'http://webapi.amap.com/theme/v1.3/markers/n/mark_b' + (i + 1) + '.png',
-            position: positions[i]
+            position: positions[i],
+            offset: {x: -16, y: -32}
         });
         marker.content = '我是第' + (i + 1) + '个Marker';
         markers.push(marker);
