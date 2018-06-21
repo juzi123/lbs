@@ -1,0 +1,102 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+.clearfix::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+.navigation {
+    background-color: #181722;
+    width: 15vw;
+    height: 100vh;
+    float: left;
+}
+.navigation>nav>ul>div {
+    color: #868A9D;
+    font-size: 25px;
+    margin: 40px;
+}
+.navigation>nav>ul>li>a {
+    display: block;
+    color: #868A9D;
+    font-size: 18px;
+    padding: 20px 60px;
+}
+.frame {
+    height: 100vh;
+    width: 84vw;
+    display: none;
+}
+.frame.show {
+    display: block;
+}
+.publishframe {
+    display: none;
+    width: 84vw;
+    height: 100vh;
+    padding-top: 20px;
+}
+.publishframe.show {
+    display: block;
+}
+.publishframe > div > label {
+    font-size: 17px;
+}
+.publishframe > div.form-group {
+    margin-left: 400px;
+}
+.publishframe>div>label>p {
+    display: inline-block;
+    width: 100px;
+    padding-right: 5px;
+    text-align: right;
+}
+.publishframe>div>label>input {
+    display: inline-block;
+    width: 450px;
+    font-size: 20px;
+    outline: none;
+}
+.publishframe>div>label>input.short{
+    width: 160px;
+}
+.publishframe>div>label>input.long{
+    width: 500px;
+}
+.publishframe>div>label>textarea{
+    display: inline-block;
+    width: 800px;
+    resize:none;  
+    vertical-align: middle;  
+}
+#getlocation {
+    display: block;
+    width: 800px;
+    height: 400px;
+    margin: 10px auto 20px;
+}
+#rentSubmit {
+    display: block;
+    margin: auto;
+    width: 100px;
+}
+.viewCollect,
+.viewPublish {
+    display: none;
+    float: right;
+    height: 100vh;
+    width: 84vw;
+}
+.viewCollect.show,
+.viewPublish.show {
+    display: block;
+}
+.showMessage{
+}
