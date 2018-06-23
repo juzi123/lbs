@@ -40,7 +40,8 @@
     // ];
     //初始化点标记
     for (var i = 0; i < SpareHouseObj.length; i++) {
-        if (SpareHouseObj[i].house.longitude !== null) {
+        console.log(SpareHouseObj[i])
+        if (SpareHouseObj[i].house.longitude !== null && SpareHouseObj[i].house.status !== 1) {
             var marker = new AMap.Marker({
                 map: map,
                 icon: chooseIconColor(parseInt(SpareHouseObj[i].house.price)),
