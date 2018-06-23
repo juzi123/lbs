@@ -17,7 +17,7 @@ a {text-decoration: none;color: inherit;}
 .topDiv>.topNavBar.sticky {padding: 10px 10px 10px 10px;}
 .topDiv>.topNavBar>.logo {font-size: 24px;padding: 11px 4px;font-family: 'Arial Black';}
 .topDiv>.topNavBar>.logo .rs {color: #E6686A;padding-right: 4px;}
-.topDiv>.topNavBar>.logo .card {color: #9A9DA2;}
+.topDiv>.topNavBar>.logo .card {color: #9A9DA2;font-size:22px;}
 .topDiv>.topNavBar>nav>ul {padding: 30px 10px 10px 10px;}
 .topDiv>.topNavBar>nav>ul>li {float: left;display: block;position: relative;margin-left: 16px;margin-right: 16px;}
 .topDiv>.topNavBar>nav>ul>li>a {color: white;font-size: 16px;border-top: 3px solid transparent;border-bottom: 3px solid transparent;padding-bottom: 5px;padding-top: 5px;position: relative;font-family: "Segoe UI","Lucida Grande",Helvetica,Arial,"Microsoft YaHei",FreeSans,Arimo,"Droid Sans","wenquanyi micro hei","Hiragino Sans GB","Hiragino Sans GB W3",FontAwesome,sans-serif}
@@ -49,7 +49,7 @@ section.messageSection {color: white; max-width: 1160px; margin: 84px auto;}
 .siteLink {
     display: inline-block;
     margin-top: 30px;
-    margin-right: 10px;
+    margin-right: 20px;
     text-align: center;
     width: 200px;
     height: 50px;

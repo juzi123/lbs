@@ -1,24 +1,30 @@
-$("#viewRentals").on('click', function () {
-    $(".viewCollect").removeClass('show')
-    $(".publishframe").removeClass('show')
-    $(".viewPublish").removeClass('show')
-    $(".frame").addClass('show')
-})
-$("#publishRentals").on('click', function () {
-    $(".viewCollect").removeClass('show')
-    $(".frame").removeClass('show')
-    $(".viewPublish").removeClass('show')
-    $(".publishframe").addClass('show')
-})
-$("#viewCollection").on('click', function () {
-    $(".publishframe").removeClass('show')
-    $(".frame").removeClass('show')
-    $(".viewPublish").removeClass('show')
-    $(".viewCollect").addClass('show')
-})
-$("#viewPublished").on('click', function(){
-    $(".publishframe").removeClass('show')
-    $(".frame").removeClass('show')
-    $(".viewCollect").removeClass('show')
-    $(".viewPublish").addClass('show')
-})
+! function() {
+    $("#viewRentals").on('click', function () {
+        removeAllClass();
+        $(".frame").addClass('show')
+    })
+    $("#publishRentals").on('click', function () {
+        removeAllClass();
+        $(".panel").addClass('show')
+        $(".publishframe").addClass('show')
+    })
+    $("#viewCollection").on('click', function () {
+        removeAllClass();
+        $(".panel").addClass('show')
+        $(".viewCollect").addClass('show')
+    })
+    $("#viewPublished").on('click', function(){
+        removeAllClass();
+        $(".panel").addClass('show')
+        $(".viewPublish").addClass('show')
+    })
+    
+    function removeAllClass(){
+        $(".panel").removeClass('show')
+        $(".publishframe").removeClass('show')
+        $(".frame").removeClass('show')
+        $(".viewCollect").removeClass('show')
+        $(".viewPublish").removeClass('show')
+    }
+
+}.call()

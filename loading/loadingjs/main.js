@@ -20,9 +20,9 @@ $("#signUpSubmit").click(function(){
     $.post("http://120.79.251.134/space/public/api/v1/user/register", {username: signUpName.value, password: signUpPassword.value, phone: signUpTelephone.value}, 
     function(data) {
         if(data.errorCode === 4003){
-            console.log('用户名已被注册')
+            $('.alert').html('用户名已被注册').removeClass('alert-success').addClass('alert-danger').show().delay(1500).fadeOut();
         }else if(data.errorCode === 0) {
-            console.log('注册成功')
+            $('.alert').html('注册成功').removeClass('alert-danger').addClass('alert-success').show().delay(1500).fadeOut();
         }
     }, "json");
 })
@@ -30,12 +30,15 @@ $("#signInSubmit").click(function(){
     $.post("http://120.79.251.134/space/public/api/v1/user/login", {username: signInName.value, password: signInPassword.value}, 
     function(data) {
         if(data.errorCode === 4004){
-            console.log('查找不到该用户')
+            $('.alert').html('找不到该用户').removeClass('alert-success').addClass('alert-danger').show().delay(1500).fadeOut();
         } else if (data.errorCode === 4005) {
-            console.log('密码错误')
+            $('.alert').html('密码错误').removeClass('alert-success').addClass('alert-danger').show().delay(1500).fadeOut();
         } else {
             sessionStorage.setItem('userId', data.id);
-            window.location = '../mainpage/index.html';
+            $('.alert').html('登录成功').removeClass('alert-danger').addClass('alert-success').show().delay(1000).fadeOut();
+            setTimeout(() => {
+                window.location = '../mainpage/index.html';
+            }, 1000);
         }
     }, "json");
 })

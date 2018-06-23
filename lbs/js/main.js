@@ -54,7 +54,8 @@
             var houseLink = SpareHouseObj[i].house.community_url
             var content = '<div>' + SpareHouseObj[i].house.introduction + "</br>" +
                 `<a target="_blank" href = "${houseLink}">详细信息</a>` + "</br>" +
-                `<button id="${SpareHouseObj[i].house.id}">添加收藏</button></div>`
+                `<button id="${SpareHouseObj[i].house.id}">添加收藏</button></div>` +
+                `<button id="assess${SpareHouseObj[i].house.id}">获取评价</button></div>`
             // var content = [];
             // content.push(SpareHouseObj[i].house.introduction)
             // content.push("<a herf='SpareHouseObj[i].house.community_url'>详细信息</a>")
@@ -69,20 +70,34 @@
         markers[i].on('click', function (e) {
             terminalPoint = new AMap.LngLat(this.getPosition().lng, this.getPosition().lat)
             //设置信息窗体
-            console.log(e)
             infoWindow.setContent(e.target.content);
             infoWindow.open(map, e.target.getPosition());
+            var userId = sessionStorage.getItem('userId');
+            var houseId = this.id;
             document.getElementById(e.target.id).onclick = function () {
-                var userId = sessionStorage.getItem('userId')
-                var houseId = this.id
                 var url = "http://120.79.251.134/space/public/api/v1/user/add_house_fav?userId=" + userId + "&houseId=" + houseId;
                 $.get(url,
                     function (data) {
-                        console.log(data)
                         if (data.errorCode === 0) {
-                            console.log('收藏成功')
+                            $('.alert').html('收藏成功').addClass('alert-success').show().delay(1500).fadeOut();
+                        } else {
+                            $('.alert').html('收藏失败').addClass('alert-danger').show().delay(1500).fadeOut();
                         }
                     }, "json");
+            }
+            document.getElementById('assess' + e.target.id).onclick = function () {
+                var url = "http://120.79.251.134/space/public/api/v1/house/get_comments?houseIds=" + houseId;
+                $.get(url, function (data) {
+                    if(data[0].comment.length == 0){
+                        alert('暂无评价');
+                    } else {
+                        var string = '';
+                        for(var i = 0; i<data[0].comment.length; i++){
+                            string += data[0].comment[i].comment + '\n';
+                        }
+                        alert(string);
+                    }
+                })
             }
             unbindAndReset();
         })
@@ -204,13 +219,13 @@
         var iconColor;
         if (price <= 1000) {
             iconColor = './image/marker_yellow.png';
-        } else if (1000 < price <= 2000) {
+        } else if (price <= 2000) {
             iconColor = './image/marker_green.png';
-        } else if (2000 < price <= 3000) {
+        } else if (price <= 3000) {
             iconColor = './image/marker_blue.png';
-        } else if (3000 < price <= 4000) {
+        } else if (price <= 4000) {
             iconColor = './image/marker_deepblue.png';
-        } else if (4000 < price <= 5000) {
+        } else if (price <= 5000) {
             iconColor = './image/marker_red.png';
         } else {
             iconColor = './image/marker_black.png';
