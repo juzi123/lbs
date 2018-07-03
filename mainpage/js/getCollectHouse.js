@@ -20,7 +20,7 @@
     }
     
     function getCollectDataRow(data) {
-        console.log(data)
+        //console.log(data)
         var row = document.createElement('tr'); //创建行  
     
         var idCell = document.createElement('td'); //创建第一列id  

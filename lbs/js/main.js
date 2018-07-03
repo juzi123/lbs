@@ -40,7 +40,6 @@
     // ];
     //初始化点标记
     for (var i = 0; i < SpareHouseObj.length; i++) {
-        console.log(SpareHouseObj[i])
         if (SpareHouseObj[i].house.longitude !== null && SpareHouseObj[i].house.status !== 1) {
             var marker = new AMap.Marker({
                 map: map,
@@ -64,7 +63,6 @@
             marker.content = content;
             markers.push(marker);
         }
-
     }
     //为点标记添加点击事件
     for (var i = 0; i < markers.length; i++) {
@@ -135,10 +133,10 @@
     }
 
     //构造路线导航类
-    var driving = new AMap.Driving({
-        map: map,
-        panel: "panel"
-    });
+var driving = new AMap.Driving({
+    map: map,
+    panel: "panel"
+});
     //步行导航
     var walking = new AMap.Walking({
         map: map,
@@ -201,7 +199,6 @@
         $('.alert').html('自动定位成功').addClass('alert-success').show().delay(1500).fadeOut();
         unbindAndReset();
     }
-
     function onError() {
         //定位失败，将起始坐标设为威海市政府
         startPoint = new AMap.LngLat(122.120511, 37.513423);

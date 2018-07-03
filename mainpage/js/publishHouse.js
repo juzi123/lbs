@@ -1,6 +1,6 @@
 ! function () {
     $("#rentSubmit").click(function () {
-        console.log($('#locationVal').val())
+        //console.log($('#locationVal').val())
         if ($('#locationVal').val() === '') {
             $('.alert').html('地址不能为空').removeClass('alert-success').addClass('alert-danger').show().delay(1500).fadeOut();
         } else if ($('#priceVal').val() === '') {
